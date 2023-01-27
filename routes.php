@@ -11,17 +11,17 @@ switch ($page) {
     case "dashboard":
         include "pages/dashboard.php";
         break;
-    case "bagian":
-        include "pages/bagian/bagian.php";
+    case "pelanggan":
+        include "pages/pelanggan/pelanggan.php";
         break;
-    case "bagiantambah":
-        include "pages/bagian/bagiantambah.php";
+    case "pelanggantambah":
+        include "pages/pelanggan/pelanggantambah.php";
         break;
-    case "bagianhapus":
-        include "pages/bagian/bagianhapus.php";
+    case "pelangganhapus":
+        include "pages/pelanggan/pelangganhapus.php";
         break;
-    case "bagianubah":
-        include "pages/bagian/bagianubah.php";
+    case "pelangganubah":
+        include "pages/pelanggan/pelangganubah.php";
         break;
     case "karyawan":
         include "pages/karyawan/karyawan.php";
@@ -49,6 +49,18 @@ switch ($page) {
         break;
     case "penggajianhapus":
         include "pages/penggajian/penggajianhapus.php";
+        break;
+    case "pengguna":
+        include "pages/pengguna/pengguna.php";
+        break;
+    case "penggunatambah":
+        include "pages/pengguna/penggunatambah.php";
+        break;
+    case "penggunahapus":
+        include "pages/pengguna/penggunahapus.php";
+        break;
+    case "penggunaubah":
+        include "pages/pengguna/penggunaubah.php";
         break;
     default:
     include "pages/404.php";

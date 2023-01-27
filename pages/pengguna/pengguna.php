@@ -1,17 +1,12 @@
 <?php 
 include "database/connection.php";
-
-if($_SESSION['level']!='administrator') {
-    $_SESSION['error'] = 'Anda tidak mempunyai akses kehalaman tersebut';
-    header('location:?page=dashboard');
-}
 ?>
-<div class="row">
+<div class="row mt-3">
     <div class="col">
-        <h3>Karyawan</h3>
+        <h3>Data Pengguna Sistem</h3>
     </div>
     <div class="col">
-        <a href="?page=karyawantambah" class="btn btn-success float-end">
+        <a href="?page=penggunatambah" class="btn btn-success float-end">
             <i class="fa fa-plus-circle"></i>
             Tambah
         </a>
@@ -20,7 +15,7 @@ if($_SESSION['level']!='administrator') {
     <div class="row mt-3">
         <div class="col">
             <?php
-            $selectSQL = "SELECT K.*,B.nama nama_bagian FROM karyawan K LEFT JOIN bagian B ON K.bagian_id = B.id";
+            $selectSQL = "SELECT * FROM pengguna";
             $result = mysqli_query($connection, $selectSQL);
 
             if (!$result) {
@@ -43,12 +38,10 @@ if($_SESSION['level']!='administrator') {
             <table class="table bg-white rounded shadow-sm  table-hover">
                 <thead>
                     <tr>
-                        <th scope="col" width="50">NIK</th>
-                        <th scope="col">Nama Karyawan</th>
-                        <th scope="col">Tanggal Mulai Bekerja</th>
-                        <th scope="col">Gaji Pokok</th>
-                        <th scope="col">Status Karyawan</th>
-                        <th scope="col">Bagian</th>
+                        <th scope="col" width="50">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Level</th>
                         <th scope="col" width="200">Opsi</th>
                     </tr>
                 </thead>
@@ -59,33 +52,27 @@ if($_SESSION['level']!='administrator') {
                     ?>
                         <tr class="align-middle">
                             <td>
-                                <?php echo $row["nik"] ?>
+                                <?php echo $no++ ?>
                             </td>
                             <td>
                                 <?php echo $row["nama"] ?>
                             </td>
                             <td>
-                                <?php echo $row["tanggal_mulai"] ?>
+                                <?php echo $row["username"] ?>
                             </td>
                             <td>
-                                <?php echo $row["gaji_pokok"] ?>
+                                <?php echo $row["level"] ?>
                             </td>
                             <td>
-                                <?php echo $row["status_karyawan"] ?>
-                            </td>
-                            <td>
-                                <?php echo $row["nama_bagian"] ?>
-                            </td>
-                            <td>
-                                <a href="?page=karyawanubah&nik=<?php echo $row["nik"] ?>" class="btn btn-primary">
+                                <a href="?page=penggunaubah&id=<?php echo $row["id"] ?>" class="btn btn-primary">
                                     <i class="fa fa-edit"></i>
-                                    Ubah
+                                    
                                 </a>
-                                <a href="?page=karyawanhapus&nik=<?php echo $row["nik"] ?>"
+                                <a href="?page=penggunahapus&id=<?php echo $row["id"] ?>"
                                     onclick="javascript: return confirm('Konfirmasi Data Akan Dihapus?');"
                                     class="btn btn-danger">
                                     <i class="fa fa-trash"></i>
-                                    Hapus
+                                    
                                 </a>
                             </td>
                         </tr>

@@ -1,12 +1,12 @@
 <?php 
 include "database/connection.php";
 ?>
-<div class="row">
+<div class="row mt-3">
     <div class="col">
-        <h3>Bagian</h3>
+        <h3>Data Pelanggan</h3>
     </div>
     <div class="col">
-        <a href="?page=bagiantambah" class="btn btn-success float-end">
+        <a href="?page=pelanggantambah" class="btn btn-success float-end">
             <i class="fa fa-plus-circle"></i>
             Tambah
         </a>
@@ -15,7 +15,7 @@ include "database/connection.php";
     <div class="row mt-3">
         <div class="col">
             <?php
-            $selectSQL = "SELECT * FROM bagian";
+            $selectSQL = "SELECT * FROM pelanggan";
             $result = mysqli_query($connection, $selectSQL);
 
             if (!$result) {
@@ -39,7 +39,15 @@ include "database/connection.php";
                 <thead>
                     <tr>
                         <th scope="col" width="50">No</th>
-                        <th scope="col">Bagian</th>
+                        <th scope="col">Nik</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Tempat</th>
+                        <th scope="col">Tanggal Lahir</th>
+                        <th scope="col">Jenis Kelamin</th>
+                        <th scope="col">Alamat Rumah</th>
+                        <th scope="col">RT/RW</th>
+                        <th scope="col">Agama</th>
+                        <th scope="col">Type Rumah</th>
                         <th scope="col" width="200">Opsi</th>
                     </tr>
                 </thead>
@@ -53,18 +61,42 @@ include "database/connection.php";
                                 <?php echo $no++ ?>
                             </td>
                             <td>
+                                <?php echo $row["nik"] ?>
+                            </td>
+                            <td>
                                 <?php echo $row["nama"] ?>
                             </td>
                             <td>
-                                <a href="?page=bagianubah&id=<?php echo $row["id"] ?>" class="btn btn-primary">
+                                <?php echo $row["tempat"] ?>
+                            </td>
+                            <td>
+                                <?php echo $row["tgl_lahir"] ?>
+                            </td>
+                            <td>
+                                <?php echo $row["jekel"] ?>
+                            </td>
+                            <td>
+                                <?php echo $row["alamat_rumah"] ?>
+                            </td>
+                            <td>
+                                <?php echo $row["rt_rw"] ?>
+                            </td>
+                            <td>
+                                <?php echo $row["agama"] ?>
+                            </td>
+                            <td>
+                                <?php echo $row["type"] ?>
+                            </td>
+                            <td>
+                                <a href="?page=pelangganubah&id=<?php echo $row["id"] ?>" class="btn btn-primary">
                                     <i class="fa fa-edit"></i>
-                                    Ubah
+                                    
                                 </a>
-                                <a href="?page=bagianhapus&id=<?php echo $row["id"] ?>"
+                                <a href="?page=pelangganhapus&id=<?php echo $row["id"] ?>"
                                     onclick="javascript: return confirm('Konfirmasi Data Akan Dihapus?');"
                                     class="btn btn-danger">
                                     <i class="fa fa-trash"></i>
-                                    Hapus
+                                    
                                 </a>
                             </td>
                         </tr>

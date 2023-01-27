@@ -17,6 +17,7 @@
                                 <i class="fas fa-user me-2"></i><?= $_SESSION['nama'] ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="?page=pengguna">Pengguna Sistem</a></li>
                                 <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                             </ul>
                         </li>

@@ -16,18 +16,21 @@ if (is_null($_SESSION['id'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="css/custom.css" />
-    <title>Aplikasi Penggajian</title>
+    <title>Aplikasi Pelayanan</title>
 </head>
 
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <?php
-        if ($_SESSION['level'] == 'administrator') {
+        if ($_SESSION['level'] == 'Administrator') {
             include 'components/sidebar.php';
-        } else {
+        } elseif ($_SESSION['level'] == 'Pimpinan') {
             include 'components/sidebar_pimpinan.php';
-        } ?>
+        } else {
+            include 'components/sidebar_wakil.php';
+        }?>
+        
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->

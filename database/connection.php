@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "penggajian";
+$dbname = "pelayanan";
 
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 if (!$connection) {

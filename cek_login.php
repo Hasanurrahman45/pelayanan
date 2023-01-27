@@ -10,7 +10,7 @@ $username = $_POST['username'];
 $password = md5($_POST['password']);
 
 //cek data di database
-$query = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+$query = "SELECT * FROM pengguna WHERE username='$username' AND password='$password'";
 $result = mysqli_query($connection, $query);
 
 //jika data ditemukan
